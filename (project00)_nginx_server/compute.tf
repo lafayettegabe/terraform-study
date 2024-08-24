@@ -1,5 +1,5 @@
-resource "aws_instance" "main" {
-  ami           = "ami-0c5410a9e09852edd"
+resource "aws_instance" "nginx" {
+  ami           = "ami-046da274b67868bfd" # NGINX AMI
   instance_type = "t2.micro"
 
   associate_public_ip_address = true
@@ -13,7 +13,7 @@ resource "aws_instance" "main" {
   }
 
   tags = {
-    Name = "proj00-ec2"
+    Name = "proj00-ec2-nginx"
   }
 }
 
