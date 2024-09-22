@@ -49,12 +49,4 @@ variable "ec2_instance_config_map" {
     ])
     error_message = "Only 'Ubuntu' and 'Nginx' AMIs are allowed"
   }
-
-  # Validate that the subnet_index is within the range of the subnet_count
-  validation {
-    condition = alltrue([
-      for config in values(var.ec2_instance_config_map) : config.subnet_index < var.subnet_count
-    ])
-    error_message = "Subnet index must be less than the subnet count"
-  }
 }
